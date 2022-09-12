@@ -1,0 +1,29 @@
+---
+version: 0.1
+globalTimeout: 100
+testSuiteTimeout: 90
+testSuiteStep: 90
+retryOnFailure: false
+runson: ${matrix.os}
+cypress: true
+maxRetries: 0
+parallelism: 1
+concurrency: 30
+autosplit: true
+pre:
+  - npm install
+cacheKey: '{{ checksum "package-lock.json" }}'
+cacheDirectories:
+  - node_modules
+matrix:
+   os: [win]
+   browser: ["chrome-95.0","chrome-96.0","chrome-97.0","chrome-98.0","chrome-99.0","chrome-100.0","chrome-101.0","chrome-102.0","chrome-103.0","chrome-104.0","chrome-105.0"]
+testDiscovery:
+  mode: dynamic
+  type: raw
+  command: ls cypress/integration | sed -n 1,'10p'
+testRunnerCommand: npx cypress run  --spec ./cypress/integration/$test --browser=${matrix.browser} --headed --config video=false
+cypressOps:
+ Build: "Hyperexecute Cypress Sample Build"
+ Tags: ["Hyperexecute","Cypress", "Windows", "Hybrid", "V9"]
+ BuildTags: ["Hyperexecute-Cypress"]

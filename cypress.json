@@ -1,0 +1,15 @@
+{
+    "reporter": "cypress-multi-reporters",
+    "baseUrl": "https://www.google.com",
+    "reporterOptions": {
+      "reporterEnabled": ["@reportportal/agent-js-cypress", "mochawesome"],
+      "mochawesomeReporterOptions": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      }
+     
+    }
+  }
+  

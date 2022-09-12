@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-08-30T08:46:34.566Z",
+    "end": "2022-08-30T08:46:44.734Z",
+    "duration": 10168,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8a51de20-fee6-4a4c-8aa0-9eaf3b12ad8f",
+      "title": "",
+      "fullFile": "cypress/integration/actions.spec.js",
+      "file": "cypress/integration/actions.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c046baa6-d028-406b-ab6f-91fc0d715247",
+          "title": "Actions",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": ".type() - type into a DOM element",
+              "fullTitle": "Actions .type() - type into a DOM element",
+              "timedOut": null,
+              "duration": 7430,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/type\ncy.get(\".action-email\").type(\"fake@email.com\").should(\"have.value\", \"fake@email.com\") // .type() with special character sequences\n.type(\"{leftarrow}{rightarrow}{uparrow}{downarrow}\").type(\"{del}{selectall}{backspace}\") // .type() with key modifiers\n.type(\"{alt}{option}\") //these are equivalent\n.type(\"{ctrl}{control}\") //these are equivalent\n.type(\"{meta}{command}{cmd}\") //these are equivalent\n.type(\"{shift}\") // Delay each keypress by 0.1 sec\n.type(\"slow.typing@email.com\", {\n  delay: 100\n}).should(\"have.value\", \"slow.typing@email.com\");\ncy.get(\".action-disabled\") // Ignore error checking prior to type\n// like whether the input is visible or disabled\n.type(\"disabled error checking\", {\n  force: true\n}).should(\"have.value\", \"disabled error checking\");",
+              "err": {},
+              "uuid": "aabf84e9-4783-4c44-bf51-3021c2dbff8d",
+              "parentUUID": "c046baa6-d028-406b-ab6f-91fc0d715247",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aabf84e9-4783-4c44-bf51-3021c2dbff8d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7430,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

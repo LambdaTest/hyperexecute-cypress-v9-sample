@@ -1,0 +1,12 @@
+{
+  "reporterEnabled": "@reportportal/agent-js-cypress",
+  "reportportalAgentJsCypressReporterOptions": {
+    "endpoint": "https://reportportal.lambdatest.io/api/v1",
+    "token": "5d343e38-aa46-4854-a0f7-ea7016c0be5a",
+    "launch": "japneets_TEST_EXAMPLE",
+    "project": "japneets_personal",
+    "description": "",
+    "parallel": true,
+    "autoMerge": true
+  }
+}
