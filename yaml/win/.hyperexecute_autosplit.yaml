@@ -24,4 +24,4 @@ cypressOps:
  Tags: ["Hyperexecute","Cypress", "Windows", "Autosplit", "V9"]
  BuildTags: ["Hyperexecute-Cypress"]
 post:
-  - ls yaml/
+  - cat ./yaml/win/.hyperexecute_matrix.yaml
