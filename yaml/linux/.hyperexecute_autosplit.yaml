@@ -7,9 +7,9 @@ retryOnFailure: true
 runson: linux
 cypress: true
 maxRetries: 1
-concurrency: 10
+concurrency: 2
 autosplit: true
-cacheKey: '{{ checksum "package-lock.json" }}'
+cacheKey: '{{ checksum "package.json" }}'
 cacheDirectories:
   - node_modules
 pre:
@@ -24,4 +24,4 @@ cypressOps:
  Tags: ["Hyperexecute","Cypress", "Windows", "Autosplit", "V9"]
  BuildTags: ["Hyperexecute-Cypress"]
 post:
-  - cat yaml/linux/.hyperexecute_autosplit.yaml
+  - cat /yaml/linux/.hyperexecute_autosplit.yaml

@@ -11,7 +11,7 @@ The overall experience helps teams test code and fix issues at a much faster pac
 
 To know more about how HyperExecute does intelligent Test Orchestration, do check out [HyperExecute Getting Started Guide](https://www.lambdatest.com/support/docs/getting-started-with-hyperexecute/)
 
-[<img alt="Try it now" width="200 px" align="center" src="images/Try it Now.svg" />](https://hyperexecute.lambdatest.com/?utm_source=github&utm_medium=repository&utm_content=java&utm_term=Cypress v9)
+[<img alt="Try it now" width="200 px" align="center" src="images/Try it Now.svg" />](https://hyperexecute.lambdatest.com/?utm_source=github&utm_medium=repository&utm_content=java&utm_term=Cypress_v9)
 
 
 ## Gitpod
@@ -21,7 +21,7 @@ Follow the below steps to run Gitpod button:
 1. Click '**Open in Gitpod**' button (You will be redirected to Login/Signup page).
 2. Login with Lambdatest credentials and it will be redirected to Gitpod editor in new tab and current tab will show hyperexecute dashboard.
 
-[<img alt="Run in Gitpod" width="200 px" align="center" src="images/Gitpod.svg" />](https://hyperexecute.lambdatest.com/?type=gitpod&framework=Cypress v9)
+[<img alt="Run in Gitpod" width="200 px" align="center" src="images/Gitpod.svg" />](https://hyperexecute.lambdatest.com/?type=gitpod&framework=Cypress_v9)
 ---
 
 <!---If logged in, it will be redirected to Gitpod editor in new tab where current tab will show hyperexecute dashboard.
@@ -120,12 +120,12 @@ Auto-split is set to true in the YAML file.
  autosplit: true
 ```
 
-*retryOnFailure* is set to true, instructing HyperExecute to retry failed command(s). The retry operation is carried out till the number of retries mentioned in *maxRetries* are exhausted or the command execution results in a *Pass*. In addition, the concurrency (i.e. number of parallel sessions) is set to 4.
+*retryOnFailure* is set to true, instructing HyperExecute to retry failed command(s). The retry operation is carried out till the number of retries mentioned in *maxRetries* are exhausted or the command execution results in a *Pass*. In addition, the concurrency (i.e. number of parallel sessions) is set to 2.
 
 ```yaml
 retryOnFailure: true
 maxRetries: 1
-concurrency: 10
+concurrency: 2
 ```
 Cypress is set to true in the YML file.
 

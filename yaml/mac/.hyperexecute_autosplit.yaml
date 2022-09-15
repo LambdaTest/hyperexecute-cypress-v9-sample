@@ -7,9 +7,9 @@ retryOnFailure: true
 runson: mac
 cypress: true
 maxRetries: 1
-concurrency: 10
+concurrency: 2
 autosplit: true
-cacheKey: '{{ checksum "package-lock.json" }}'
+cacheKey: '{{ checksum "package.json" }}'
 cacheDirectories:
   - node_modules
 pre:

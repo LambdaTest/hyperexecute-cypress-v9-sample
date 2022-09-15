@@ -8,8 +8,8 @@ runson: ${matrix.os}
 cypress: true
 maxRetries: 2
 parallelism: 1
-concurrency: 30
-cacheKey: '{{ checksum "package-lock.json" }}'
+concurrency: 2
+cacheKey: '{{ checksum "package.json" }}'
 cacheDirectories:
   - node_modules
 pre:
