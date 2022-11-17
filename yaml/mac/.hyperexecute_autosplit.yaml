@@ -21,7 +21,7 @@ testDiscovery:
 testRunnerCommand: npx cypress run  --spec ./cypress/integration/$test --browser=chrome-95.0 --headed --config video=false
 cypressOps:
  Build: "Hyperexecute Cypress Sample Build"
- Tags: ["Hyperexecute","Cypress", "Windows", "Autosplit", "V9"]
+ Tags: ["Hyperexecute","Cypress", "MaCOS", "Autosplit", "V9"]
  BuildTags: ["Hyperexecute-Cypress"]
 post:
   - cat ./yaml/mac/.hyperexecute_matrix.yaml
