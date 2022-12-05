@@ -12,8 +12,9 @@ autosplit: true
 cacheKey: '{{ checksum "package.json" }}'
 cacheDirectories:
   - node_modules
-pre:
-  - npm install
+  - cypressCache
+env:
+  CYPRESS_CACHE_FOLDER: cypressCache
 testDiscovery:
   mode: static
   type: raw
