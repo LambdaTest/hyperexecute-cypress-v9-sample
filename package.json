@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "@lambdatest/node-tunnel": "^3.0.0",
-    "@reportportal/agent-js-cypress": "^5.0.3",
     "archiver": "^5.1.0",
     "async": "^3.2.3",
     "cypress": "9.3.0",
