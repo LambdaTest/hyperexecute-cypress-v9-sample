@@ -9,10 +9,10 @@ cypress: true
 maxRetries: 1
 concurrency: 2
 autosplit: true
-cacheKey: '{{ checksum "package.json" }}'
-cacheDirectories:
-  - node_modules
-  - cypressCache
+# cacheKey: '{{ checksum "package.json" }}'
+# cacheDirectories:
+#   - node_modules
+#   - cypressCache
 env:
   CYPRESS_CACHE_FOLDER: cypressCache
 testDiscovery:
@@ -26,3 +26,5 @@ cypressOps:
  BuildTags: ["Hyperexecute-Cypress"]
 post:
   - cat ./yaml/win/.hyperexecute_matrix.yaml
+pre:
+  - npm install
