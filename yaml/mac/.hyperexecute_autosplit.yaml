@@ -25,3 +25,6 @@ cypressOps:
  BuildTags: ["Hyperexecute-Cypress"]
 post:
   - cat ./yaml/mac/.hyperexecute_matrix.yaml
+
+
+jobLabel: [cypress-v9, mac, autosplit]
