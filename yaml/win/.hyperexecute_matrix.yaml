@@ -26,3 +26,6 @@ cypressOps:
  BuildTags: ["Hyperexecute-Cypress"]
 post:
   - cat ./yaml/win/.hyperexecute_autosplit.yaml
+
+
+jobLabel: [cypress-v9, win, matrix]

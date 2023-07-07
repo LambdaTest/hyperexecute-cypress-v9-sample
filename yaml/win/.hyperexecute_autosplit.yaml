@@ -28,3 +28,5 @@ post:
   - cat ./yaml/win/.hyperexecute_matrix.yaml
 pre:
   - npm install
+
+jobLabel: [cypress-v9, win, autosplit]
