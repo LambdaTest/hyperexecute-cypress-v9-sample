@@ -20,6 +20,19 @@ testDiscovery:
   type: raw
   command: ls cypress/integration
 testRunnerCommand: npx cypress run  --spec ./cypress/integration/$test --browser=chrome-95.0 --headed --config video=false
+mergeArtifacts: true
+
+uploadArtefacts:
+  - name: XmlReports
+    path:
+      - cypress/results/*
+
+report: true
+partialReports:
+ location: cypress/results
+ type: html
+ frameworkName: cypress
+
 cypressOps:
  Build: "Hyperexecute Cypress Sample Build"
  Tags: ["Hyperexecute","Cypress", "Windows", "Autosplit", "V9"]

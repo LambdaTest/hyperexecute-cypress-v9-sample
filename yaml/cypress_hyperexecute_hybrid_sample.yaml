@@ -29,6 +29,12 @@ uploadArtefacts:
     path:
       - cypress/results/*
 
+report: true
+partialReports:
+ location: cypress/results
+ type: html
+ frameworkName: cypress
+
 testDiscovery:
   mode: dynamic
   type: raw
@@ -38,7 +44,7 @@ testRunnerCommand: npx cypress run  --spec ./cypress/integration/$test --browser
 
 cypressOps:
   Build: "Hyperexecute Cypress Sample Build"
-  Tags: ["Hyperexecute","Cypress", "Windows", "Hybrid", "V9"]
+  Tags: ["Hyperexecute","Cypress", "Hybrid", "V9"]
   BuildTags: ["Hyperexecute-Cypress"]
 
 jobLabel: [cypress-v9, hybrid]
