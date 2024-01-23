@@ -13,6 +13,7 @@ autosplit: true
 
 pre:
   - npm install
+  - npm install cypress
 
 cacheKey: '{{ checksum "package.json" }}'
 cacheDirectories:
