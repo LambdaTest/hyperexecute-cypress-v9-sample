@@ -18,6 +18,20 @@ testDiscovery:
   mode: static
   type: raw
   command: ls cypress/integration | sed -n 1,'10p'
+  
+mergeArtifacts: true
+
+uploadArtefacts:
+  - name: XmlReports
+    path:
+      - cypress/results/*
+
+report: true
+partialReports:
+ location: cypress/results
+ type: html
+ frameworkName: cypress
+
 testRunnerCommand: npx cypress run  --spec ./cypress/integration/$test --browser=chrome-95.0 --headed --config video=false
 cypressOps:
  Build: "Hyperexecute Cypress Sample Build"

@@ -20,9 +20,23 @@ matrix:
    files: ["actions.spec.js", "aliasing.spec.js"]
 testSuites: 
   - npx cypress run  --spec ./cypress/integration/$files --browser=$browser --headed --config video=false
+
+mergeArtifacts: true
+
+uploadArtefacts:
+  - name: XmlReports
+    path:
+      - cypress/results/*
+
+report: true
+partialReports:
+ location: cypress/results
+ type: html
+ frameworkName: cypress
+
 cypressOps:
  Build: "Hyperexecute Cypress Sample Build"
- Tags: ["Hyperexecute","Cypress", "Windows", "Matrix", "V9"]
+ Tags: ["Hyperexecute","Cypress", "LINUX", "Matrix", "V9"]
  BuildTags: ["Hyperexecute-Cypress"]
 post:
   - cat ./yaml/linux/.hyperexecute_autosplit.yaml
