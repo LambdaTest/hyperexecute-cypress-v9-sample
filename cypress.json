@@ -2,7 +2,7 @@
     "reporter": "cypress-multi-reporters",
     "baseUrl": "https://www.google.com",
     "reporterOptions": {
-      "reporterEnabled": ["@reportportal/agent-js-cypress", "mochawesome"],
+      "reporterEnabled": ["mochawesome"],
       "mochawesomeReporterOptions": {
         "reportDir": "cypress/results",
         "overwrite": false,

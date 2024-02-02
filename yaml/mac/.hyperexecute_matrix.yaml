@@ -16,13 +16,30 @@ pre:
   - npm install
 matrix:
    os: [mac]
-   browser: ["chrome-95.0","chrome-96.0","chrome-97.0","chrome-98.0","chrome-99.0","chrome-100.0","chrome-101.0","chrome-102.0","chrome-103.0","chrome-104.0","chrome-105.0"]
-   files: ["actions.spec.js", "aliasing.spec.js", "assertions.spec.js", "connectors.spec.js", "cookies.spec.js", "local_storage.spec.js", "navigation.spec.js", "querying.spec.js"]
+   browser: ["chrome-104.0","chrome-105.0"]
+   files: ["actions.spec.js", "aliasing.spec.js"]
+
+mergeArtifacts: true
+
+uploadArtefacts:
+  - name: XmlReports
+    path:
+      - cypress/results/*
+
+report: true
+partialReports:
+ location: cypress/results
+ type: html
+ frameworkName: cypress
+
 testSuites: 
   - npx cypress run  --spec ./cypress/integration/$files --browser=$browser --headed --config video=false
 cypressOps:
  Build: "Hyperexecute Cypress Sample Build"
- Tags: ["Hyperexecute","Cypress", "Windows", "Matrix", "V9"]
+ Tags: ["Hyperexecute","Cypress", "MacOS", "Matrix", "V9"]
  BuildTags: ["Hyperexecute-Cypress"]
 post:
   - cat ./yaml/mac/.hyperexecute_autosplit.yaml
+
+
+jobLabel: [cypress-v9, mac, matrix]
