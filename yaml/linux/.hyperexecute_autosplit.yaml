@@ -21,8 +21,6 @@ cacheDirectories:
 pre:
   - npm install
 
-post:
-  - cat ./yaml/linux/.hyperexecute_autosplit.yaml
 
 mergeArtifacts: true
 
@@ -48,5 +46,8 @@ cypressOps:
  Build: "Hyperexecute Cypress Sample Build"
  Tags: ["Hyperexecute","Cypress", "Linux", "Autosplit", "V9"]
  BuildTags: ["Hyperexecute-Cypress"]
+ 
+post:
+  - cat yaml/linux/.hyperexecute_matrix.yaml
 
 jobLabel: [cypress-v9, linux, autosplit]
