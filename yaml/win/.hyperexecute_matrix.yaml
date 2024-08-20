@@ -1,44 +1,32 @@
 ---
 version: 0.1
-globalTimeout: 90
-testSuiteTimeout: 90
-testSuiteStep: 90
-retryOnFailure: false
+
 runson: ${matrix.os}
-cypress: true
-maxRetries: 2
-parallelism: 1
 concurrency: 2
-cacheKey: '{{ checksum "package.json" }}'
-cacheDirectories:
-  - node_modules
+
+cypress: true
+cypressOps:
+  Build: "Hyperexecute Cypress Sample Build"
+  Tags: ["HYP-Cypress", "Windows", "Matrix", "Accessibility"]
+  BuildTags: ["HYP-Cypress-v9"]
+  accessibility: true
+  accessibilityWcagVersion: "wcag21a"
+  accessibilityBestPractice: false  
+  accessibilityNeedsReview: true
+
 pre:
   - npm install
+  - npm install cypress@9.6.1 --save-dev
+  - npm i lambdatest-cypress-cli
+
 matrix:
    os: [win]
-   browser: ["chrome-104.0","chrome-105.0"]
-   files: ["actions.spec.js", "aliasing.spec.js"]
+   browser: ["chrome"]
+   files: ["actions.spec.js", "aliasing.spec.js", "assertions.spec.js", "connectors.spec.js", "cookies.spec.js"]
+
 testSuites: 
-  - npx cypress run  --spec ./cypress/integration/$files --browser=$browser --headed --config video=false
-mergeArtifacts: true
+  - npx cypress run  --spec ./cypress/integration/$files --browser=$browser --headed --config video=true
 
-uploadArtefacts:
-  - name: XmlReports
-    path:
-      - cypress/results/*
+parallelism: 1
 
-report: true
-partialReports:
- location: cypress/results
- type: html
- frameworkName: cypress
-
-cypressOps:
- Build: "Hyperexecute Cypress Sample Build"
- Tags: ["Hyperexecute","Cypress", "Windows", "Matrix", "V9"]
- BuildTags: ["Hyperexecute-Cypress"]
-post:
-  - cat ./yaml/win/.hyperexecute_autosplit.yaml
-
-
-jobLabel: [cypress-v9, win, matrix]
+jobLabel: [cypress-v10, win, nmatrix, accessibility]

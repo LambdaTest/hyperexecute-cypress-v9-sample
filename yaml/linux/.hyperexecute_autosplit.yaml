@@ -1,52 +1,30 @@
 ---
 version: 0.1
-
-globalTimeout: 90
-testSuiteTimeout: 90
-testSuiteStep: 90
-
-retryOnFailure: true
-maxRetries: 1
-
 runson: linux
-cypress: true
 
-concurrency: 2
 autosplit: true
+concurrency: 2
 
-cacheKey: '{{ checksum "package.json" }}'
-cacheDirectories:
-  - node_modules
+cypress: true
+cypressOps:
+  Build: "Hyperexecute Cypress Sample Build"
+  Tags: ["HYP-Cypress", "Linux", "Autosplit", "Accessibility"]
+  BuildTags: ["HYP-Cypress-v9"]
+  accessibility: true
+  accessibilityWcagVersion: "wcag21a"
+  accessibilityBestPractice: false  
+  accessibilityNeedsReview: true
 
 pre:
   - npm install
-
-post:
-  - cat ./yaml/linux/.hyperexecute_autosplit.yaml
-
-mergeArtifacts: true
-
-uploadArtefacts:
-  - name: XmlReports
-    path:
-      - cypress/results/*
-
-report: true
-partialReports:
- location: cypress/results
- type: html
- frameworkName: cypress
+  - npm install cypress@9.6.1 --save-dev
+  - npm i lambdatest-cypress-cli
 
 testDiscovery:
   mode: static
   type: raw
   command: ls cypress/integration | sed -n 1,'10p'
 
-testRunnerCommand: npx cypress run  --spec ./cypress/integration/$test --browser=chrome-95.0 --headed --config video=false
+testRunnerCommand: npx cypress run  --spec ./cypress/integration/$test --browser=chrome-latest --headed --config video=true
 
-cypressOps:
- Build: "Hyperexecute Cypress Sample Build"
- Tags: ["Hyperexecute","Cypress", "Linux", "Autosplit", "V9"]
- BuildTags: ["Hyperexecute-Cypress"]
-
-jobLabel: [cypress-v9, linux, autosplit]
+jobLabel: [cypress-v9, linux, autosplit, accessibility]

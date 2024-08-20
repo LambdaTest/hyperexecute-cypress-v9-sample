@@ -1,51 +1,32 @@
+---
 version: 0.1
-globalTimeout: 100
-testSuiteTimeout: 90
-testSuiteStep: 90
 
-retryOnFailure: false
 runson: ${matrix.os}
-cypress: true
-maxRetries: 0
-parallelism: 1
 concurrency: 2
-autosplit: true
+
+cypress: true
+cypressOps:
+  Build: "Hyperexecute Cypress Sample Build"
+  Tags: ["HYP-Cypress", "Hybrid", "Accessibility"]
+  BuildTags: ["HYP-Cypress-v9"]
+  accessibility: true
+  accessibilityWcagVersion: "wcag21a"
+  accessibilityBestPractice: false  
+  accessibilityNeedsReview: true
 
 pre:
   - npm install
-  - npm install cypress
-
-cacheKey: '{{ checksum "package.json" }}'
-cacheDirectories:
-  - node_modules
+  - npm install cypress@9.6.1 --save-dev
+  - npm i lambdatest-cypress-cli
 
 matrix:
    os: [win]
-   browser: ["chrome-103.0","chrome-104.0","chrome-105.0"]
+   browser: ["chrome"]
+   files: ["actions.spec.js", "aliasing.spec.js", "assertions.spec.js", "connectors.spec.js", "cookies.spec.js"]
 
-mergeArtifacts: true
+testSuites: 
+  - npx cypress run  --spec ./cypress/integration/$files --browser=$browser --headed --config video=true
 
-uploadArtefacts:
-  - name: XmlReports
-    path:
-      - cypress/results/*
+parallelism: 1
 
-report: true
-partialReports:
- location: cypress/results
- type: html
- frameworkName: cypress
-
-testDiscovery:
-  mode: dynamic
-  type: raw
-  command: ls cypress/integration | sed -n 1,'10p'
-
-testRunnerCommand: npx cypress run  --spec ./cypress/integration/$test --browser=${matrix.browser} --headed --config video=false
-
-cypressOps:
-  Build: "Hyperexecute Cypress Sample Build"
-  Tags: ["Hyperexecute","Cypress", "Hybrid", "V9"]
-  BuildTags: ["Hyperexecute-Cypress"]
-
-jobLabel: [cypress-v9, hybrid]
+jobLabel: [cypress-v10, hybrid, accessibility]
