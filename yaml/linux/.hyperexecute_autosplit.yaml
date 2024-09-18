@@ -10,10 +10,6 @@ cypressOps:
   Build: "Hyperexecute Cypress Sample Build"
   Tags: ["HYP-Cypress", "Linux", "Autosplit", "Accessibility"]
   BuildTags: ["HYP-Cypress-v9"]
-  accessibility: true
-  accessibilityWcagVersion: "wcag21a"
-  accessibilityBestPractice: false  
-  accessibilityNeedsReview: true
 
 pre:
   - npm install
@@ -27,4 +23,4 @@ testDiscovery:
 
 testRunnerCommand: npx cypress run  --spec ./cypress/integration/$test --browser=chrome-latest --headed --config video=true
 
-jobLabel: [cypress-v9, linux, autosplit, accessibility]
+jobLabel: [cypress-v9, linux, autosplit]
